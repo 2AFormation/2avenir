@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2Avenir · logiciel pour la protection de l'enfance</title>
+<meta name="description" content="2Avenir relie le dossier de chaque enfant accueilli, les échéances et les documents (PPE, DIPC, projet personnalisé, rapport de situation), avec une version pour l'enfant. Sans serveur extérieur. Par 2A Formation.">
+<meta property="og:title" content="2Avenir · moins de temps sur les papiers, plus de temps avec les enfants">
+<meta property="og:description" content="Le logiciel des écrits en protection de l'enfance, conçu par deux éducateurs spécialisés. Données chiffrées, rien n'est envoyé à l'extérieur.">
+<meta property="og:url" content="https://2avenir.2aformation.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 26 26%27%3E%3Crect width=%2726%27 height=%2726%27 rx=%276%27 fill=%27%23071433%27/%3E%3Cg stroke=%27%23fff%27 stroke-width=%271.6%27%3E%3Cpath d=%27M6 7l7 6l7-6M6 19l7-6l7 6%27/%3E%3C/g%3E%3Ccircle cx=%2713%27 cy=%2713%27 r=%273%27 fill=%27%238cc8ff%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;600&display=swap">
+<style>
+:root{color-scheme:dark;--ink:#f3f6fc;--muted:#a3b3cf;--dim:#6f82a6;--line:rgba(255,255,255,.12);--glass:rgba(255,255,255,.05);--accent:#8cc8ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:"Segoe UI Variable","Segoe UI",Inter,system-ui,Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+ background:radial-gradient(1200px 700px at 70% 0%,#123a78 0%,transparent 60%),linear-gradient(180deg,#071433 0%,#08183d 50%,#06112b 100%)}
+html{background:#071433}
+body:before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:11;background:#071433}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,.logo,.px{font-family:Poppins,"Segoe UI",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+#net{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header,main,footer{position:relative;z-index:1}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.tagm{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));right:calc(14px + env(safe-area-inset-right,0px));z-index:99;background:rgba(255,255,255,.08);border:1px solid var(--line);color:var(--muted);font-size:12px;padding:6px 12px;border-radius:20px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:8px;font-weight:600;font-size:15px;background:#fff;color:#071433;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(140,200,255,.25)}
+.btn.line{background:rgba(255,255,255,.04);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.btn.line:hover{box-shadow:inset 0 0 0 1px #fff}
+.k{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+.k:before{content:"";width:22px;height:1px;background:var(--accent)}
+
+header{border-bottom:1px solid var(--line);backdrop-filter:blur(6px);background:rgba(7,20,51,.35);position:sticky;top:env(safe-area-inset-top,0px);z-index:10}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:19px}
+nav{display:flex;gap:30px;font-size:14.5px;color:var(--muted)}
+nav a:hover{color:#fff}
+header .btn{padding:9px 18px;font-size:14px}
+
+.hero{display:flex;align-items:center;padding-block:110px 120px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:54px;line-height:1.08;letter-spacing:-1.4px;margin:20px 0 22px;font-weight:600}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:18.5px;color:var(--muted);margin:0 0 34px;max-width:540px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:flex;gap:24px;margin-top:34px;font-size:14px;color:var(--dim);flex-wrap:wrap}
+.trust b{color:#fff;font-weight:600}
+
+.app{background:rgba(9,24,58,.72);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(10px);box-shadow:0 40px 90px rgba(0,0,0,.45);overflow:hidden}
+.app .bar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+.app .bar b{color:#fff;font-weight:600}
+.app .kp{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.app .kp div{padding:16px 20px;border-right:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.app .kp div:last-child{border-right:0}
+.app .kp b{display:block;font-size:24px;font-family:Poppins,sans-serif;font-weight:600}
+.r{color:#ff9d8f}.o{color:#ffd27a}.g{color:#7fe0c4}
+.app .row{display:flex;justify-content:space-between;padding:13px 20px;border-bottom:1px solid var(--line);font-size:14px}
+.app .row:last-child{border-bottom:0}
+.app .row small{color:var(--dim);margin-left:8px}
+.app .row span:last-child{font-size:12.5px;font-weight:600}
+
+section{padding:120px 0}
+.sh{max-width:660px;margin-bottom:56px}
+.sh h2{font-size:40px;line-height:1.15;letter-spacing:-.9px;margin:16px 0 14px;font-weight:600}
+.sh p{color:var(--muted);font-size:17.5px;margin:0}
+.sh.c{text-align:center;margin-left:auto;margin-right:auto}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:30px 28px;backdrop-filter:blur(6px);transition:border-color .3s,transform .3s}
+.card:hover{border-color:rgba(140,200,255,.45);transform:translateY(-3px)}
+.card .ic{width:42px;height:42px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;margin-bottom:20px}
+.card h3{margin:0 0 8px;font-size:19px;font-weight:600}
+.card p{margin:0;color:var(--muted);font-size:15px}
+
+.docs{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;justify-content:center}
+.docs span{padding:9px 16px;border-radius:30px;border:1px solid var(--line);font-size:14px;background:rgba(255,255,255,.03)}
+
+.kid .age{font-size:12.5px;font-weight:600;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase}
+.kid svg{display:block;margin-bottom:22px}
+.fine{text-align:center;color:var(--dim);font-size:14.5px;margin-top:28px}
+
+.sec{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.sec h2{font-size:40px;letter-spacing:-.9px;line-height:1.15;margin:16px 0 14px;font-weight:600}
+.sec p{color:var(--muted)}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sg div{padding:22px;border-radius:12px;border:1px solid var(--line);background:var(--glass)}
+.sg b{display:block;font-weight:600;margin-bottom:4px}
+.sg span{color:var(--muted);font-size:14.5px}
+.law{margin-top:20px;font-size:13.5px;color:var(--dim)}
+
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t{border-radius:14px;padding:32px 30px;background:var(--glass);border:1px solid var(--line);display:flex;flex-direction:column;backdrop-filter:blur(6px)}
+.t.rec{background:rgba(140,200,255,.08);border-color:rgba(140,200,255,.5)}
+.t h3{margin:0;font-size:18px;font-weight:600}
+.t .for{color:var(--dim);font-size:14px;margin:4px 0 20px}
+.px{font-size:42px;font-weight:600;letter-spacing:-1px}
+.px small{font-size:15px;color:var(--muted);font-weight:400}
+.ttc{font-size:13px;color:var(--muted);margin-top:-2px;margin-bottom:6px}
+.t ul{list-style:none;padding:0;margin:20px 0 26px;flex:1;font-size:14.5px;color:#d3dcee}
+.t li{padding:8px 0;border-top:1px solid var(--line)}
+.t .btn{justify-content:center}
+.fond{text-align:center;color:var(--muted);margin-top:24px;font-size:15px}
+.fond b{color:#fff}
+
+.final{text-align:center;padding:140px 0}
+.final h2{font-size:48px;letter-spacing:-1px;margin:16px 0 14px;font-weight:600}
+.final p{color:var(--muted);margin:0 0 34px;font-size:17px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font-size:13.5px}
+footer a{color:inherit}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media(max-width:900px){
+ nav{display:none}
+ .hero .wrap,.sec{grid-template-columns:1fr}
+ .hero h1{font-size:36px}
+ .grid3,.tg,.sg{grid-template-columns:1fr}
+ section{padding:72px 0}
+ .sh h2,.sec h2{font-size:30px}.final h2{font-size:34px}
+}
+
+/* ===== améliorations v2 ===== */
+.app .bar .live{display:inline-flex;align-items:center;gap:7px}
+.app .bar .live:before{content:"";width:7px;height:7px;border-radius:50%;background:#7fe0c4;box-shadow:0 0 0 0 rgba(127,224,196,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(127,224,196,.55)}70%{box-shadow:0 0 0 8px rgba(127,224,196,0)}100%{box-shadow:0 0 0 0 rgba(127,224,196,0)}}
+.app .row{animation:rowin .7s ease both}
+.app .row:nth-of-type(1){animation-delay:.15s}.app .row:nth-of-type(2){animation-delay:.3s}.app .row:nth-of-type(3){animation-delay:.45s}.app .row:nth-of-type(4){animation-delay:.6s}
+@keyframes rowin{from{opacity:.25;transform:translateX(10px)}to{opacity:1;transform:none}}
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(7,20,51,.45);backdrop-filter:blur(4px)}
+.strip .wrap{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;padding-block:22px;font-size:13.5px;color:var(--muted)}
+.strip b{color:#fff;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
+.steps:before{content:"";position:absolute;top:27px;left:16%;right:16%;height:1px;background:linear-gradient(90deg,rgba(140,200,255,.1),rgba(140,200,255,.6),rgba(140,200,255,.1))}
+.step{text-align:center;padding:0 10px;position:relative}
+.step .dot{width:54px;height:54px;border-radius:50%;margin:0 auto 22px;display:grid;place-items:center;background:#0b1f4a;border:1px solid rgba(140,200,255,.55);font-family:Poppins,sans-serif;font-weight:600;color:#fff;box-shadow:0 0 24px rgba(140,200,255,.25)}
+.step h3{margin:0 0 8px;font-size:19px;font-weight:600}
+.step p{margin:0 auto;color:var(--muted);font-size:15px;max-width:300px}
+.paper{width:118px;height:150px;background:#f7f9fd;border-radius:6px;box-shadow:0 14px 30px rgba(0,0,0,.35);padding:9px;display:flex;flex-direction:column;gap:6px;margin-bottom:22px;transform:rotate(-2deg);transition:transform .35s}
+.card:hover .paper{transform:rotate(0) translateY(-3px)}
+.form{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:10px;max-width:880px;margin:0 auto;text-align:left}
+.form label{display:block;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+.form input{width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;font:inherit;font-size:15px}
+.form input::placeholder{color:var(--dim)}
+.form input:focus{outline:none;border-color:var(--accent);background:rgba(255,255,255,.09)}
+.form .btn{align-self:end;height:47px;border:0;cursor:pointer}
+.ok{margin-top:18px;color:#7fe0c4;font-size:15px}
+@media(max-width:900px){.steps,.form{grid-template-columns:1fr}.steps:before{display:none}.strip .wrap{gap:14px;flex-direction:column;align-items:center;text-align:center}}
+@media(prefers-reduced-motion:reduce){.app .row{animation:none}.app .bar .live:before{animation:none}}
+</style>
+</head>
+<body>
+
+<canvas id="net" aria-hidden="true"></canvas>
+
+<header>
+ <div class="wrap">
+  <div class="logo"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="13" cy="13" r="3.2" fill="#fff"/><circle cx="4" cy="6" r="1.8"/><circle cx="22" cy="5" r="1.8"/><circle cx="23" cy="19" r="1.8"/><circle cx="5" cy="21" r="1.8"/><path d="M5.5 7l5 4.2M20.5 6.3l-5.3 4.8M21.5 18l-5.6-3.4M6.5 19.8l4.3-4.2"/></svg>2Avenir</div>
+  <nav><a href="#logiciel">Le logiciel</a><a href="#equipe">Équipe</a><a href="#enfant">Version enfant</a><a href="#securite">Sécurité</a><a href="#tarifs">Tarifs</a></nav>
+  <a class="btn" href="#demo">Demander une démo</a>
+ </div>
+</header>
+
+<main>
+ <div class="hero">
+  <div class="wrap">
+   <div>
+    <div class="k">Logiciel pour la protection de l'enfance</div>
+    <h1>Moins de temps sur les papiers, <span>plus de temps avec les enfants.</span></h1>
+    <p>Autour de chaque enfant, des professionnels, une famille, des décisions et des échéances. 2Avenir relie tout : un dossier saisi une fois, des documents prêts, rien qui ne se perd.</p>
+    <div class="ctas"><a class="btn" href="#demo">Demander une démo</a><a class="btn line" href="#logiciel">Découvrir le logiciel</a></div>
+    <div class="trust"><span><b>Saisie unique</b> · tous les documents</span><span><b>Zéro transmission</b> · données chez vous</span></div>
+   </div>
+   <div class="app" aria-label="Aperçu du logiciel, données fictives">
+    <div class="bar"><b>Échéances</b><span class="live">17 dossiers suivis</span></div>
+    <div class="kp"><div><b class="r">1</b>dépassée</div><div><b class="o">2</b>sous 30 jours</div><div><b class="g">14</b>à jour</div></div>
+    <div class="row"><span>PPE à établir<small>Noa M.</small></span><span class="r">Dépassé de 4 j</span></div>
+    <div class="row"><span>Avenant au DIPC<small>Lina B.</small></span><span class="o">Dans 12 j</span></div>
+    <div class="row"><span>Rapport de situation<small>Yanis T.</small></span><span class="o">Dans 26 j</span></div>
+    <div class="row"><span>Entretien d'autonomie<small>Sarah K.</small></span><span class="g">Dans 3 mois</span></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="strip"><div class="wrap"><span><b>Conçu par deux éducateurs spécialisés</b> en protection de l'enfance</span><span><b>Fondé sur le CASF</b>, mis à jour avec la loi</span><span><b>Par 2A Formation</b>, organisme de formation certifié Qualiopi</span></div></div>
+
+ <section id="etapes">
+  <div class="wrap">
+   <div class="sh c"><div class="k">Comment ça marche</div><h2>Trois gestes, un dossier relié</h2></div>
+   <div class="steps">
+    <div class="step"><div class="dot">1</div><h3>Saisir</h3><p>Vous créez le dossier de l'enfant : identité, mesure, famille, référents, objectifs.</p></div>
+    <div class="step"><div class="dot">2</div><h3>Suivre</h3><p>2Avenir calcule les échéances et garde la chronologie du parcours.</p></div>
+    <div class="step"><div class="dot">3</div><h3>Produire</h3><p>Le PPE, le DIPC, le rapport et la version enfant sont prêts, à relire et signer.</p></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="logiciel">
+  <div class="wrap">
+   <div class="sh"><div class="k">Le logiciel</div><h2>Une information saisie une fois, reliée partout</h2><p>Conçu par des éducateurs spécialisés pour le référent, le chef de service, le secrétariat et la direction.</p></div>
+   <div class="grid3">
+    <div class="card"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div><h3>Saisie unique</h3><p>Identité, mesure, famille, référents et objectifs, repris dans tous les documents.</p></div>
+    <div class="card"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Échéances</h3><p>PPE à 3 mois, DIPC à 15 jours, avenant à 6 mois, rapports, entretien d'autonomie : signalés à l'avance.</p></div>
+    <div class="card"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 20l1.5-4.5L16 5l3 3L8.5 18.5z"/><path d="M14 7l3 3"/></svg></div><h3>On écrit dans le dossier</h3><p>Deux onglets, Informations et Écrits : les encarts à rédiger sont prévus, document par document, sans traitement de texte.</p></div>
+   </div>
+   <div class="docs"><span>PPE</span><span>DIPC et avenant</span><span>Projet personnalisé</span><span>Rapport de situation</span><span>Compte rendu de réunion</span><span>Chronologie</span><span>Fiches fugue et hospitalisation</span><span>Note d'incident</span><span>Déclaration L. 331-8-1</span><span>Autorisation d'acte non usuel</span></div>
+  </div>
+ </section>
+
+ <section id="equipe">
+  <div class="wrap">
+   <div class="sh"><div class="k">Travailler en équipe</div><h2>Toute l'équipe sur les mêmes dossiers, sans serveur extérieur</h2><p>Les dossiers sont enregistrés, chiffrés, dans un dossier partagé de votre établissement. Chacun se connecte avec son identifiant et ne voit que ce que son rôle permet.</p></div>
+   <div class="grid3">
+    <div class="card"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M14.5 15.2c.8-.5 1.6-.7 2.5-.7 2 0 3.5 1.2 4 4"/></svg></div><h3>Chacun son accès</h3><p>La direction voit tout, le chef de service son service, le référent ses dossiers. Le secrétariat accède à l'administratif, pas aux écrits.</p></div>
+    <div class="card"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>Un cloisonnement réel</h3><p>Chaque dossier a ses propres clés. Sans accès, impossible de le lire, même en ouvrant les fichiers. Un départ change les clés.</p></div>
+    <div class="card"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 5h16v11H4z"/><path d="M9 20h6M12 16v4"/><circle cx="12" cy="10.5" r="2"/></svg></div><h3>Un dossier, une personne à la fois</h3><p>Quand un professionnel modifie un dossier, ses collègues le voient en lecture seule, avec son nom. Plus de versions qui s'écrasent.</p></div>
+   </div>
+   <div class="docs"><span>Direction</span><span>Chef(fe) de service</span><span>Éducateur(trice) référent(e)</span><span>Secrétariat</span><span style="color:var(--dim)">Historique des modifications : qui, quand</span></div>
+  </div>
+ </section>
+
+ <section id="enfant" class="kid">
+  <div class="wrap">
+   <div class="sh c"><div class="k">Version enfant</div><h2>L'enfant au centre de son projet</h2><p>À chaque document, 2Avenir crée une version illustrée, réécrite avec des mots de son âge, à lui remettre et à expliquer.</p></div>
+   <div class="grid3">
+    <div class="card"><div class="paper"><div style="font:700 9px Poppins,sans-serif;color:#e8735a;text-align:center">Mon projet</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;flex:1"><div style="background:#ffe3d6;border-radius:6px"></div><div style="background:#dff1e6;border-radius:6px"></div><div style="background:#e3ecfb;border-radius:6px"></div><div style="background:#fdf0c4;border-radius:6px"></div></div></div><div class="age">0-6 ans</div><h3>Petits</h3><p>Des images, une idée par page, à raconter avec l'adulte.</p></div>
+    <div class="card"><div class="paper"><div style="background:#2a9d8f;border-radius:4px;height:15px"></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px"><div style="height:24px;border:1.5px solid #e9c46a;border-radius:4px"></div><div style="height:24px;border:1.5px solid #e9c46a;border-radius:4px"></div><div style="height:24px;border:1.5px solid #e9c46a;border-radius:4px"></div></div><svg width="100" height="16" viewBox="0 0 100 16"><line x1="4" y1="8" x2="96" y2="8" stroke="#2a9d8f" stroke-width="2"/><circle cx="8" cy="8" r="4" fill="#e9c46a"/><circle cx="36" cy="8" r="3.5" fill="#fff" stroke="#2a9d8f" stroke-width="2"/><circle cx="64" cy="8" r="3.5" fill="#fff" stroke="#2a9d8f" stroke-width="2"/><circle cx="92" cy="8" r="3.5" fill="#fff" stroke="#2a9d8f" stroke-width="2"/></svg><div style="flex:1;border:1.5px dashed #2a9d8f;border-radius:4px"></div></div><div class="age">6-12 ans</div><h3>Moyens</h3><p>Ses objectifs, les rendez-vous à venir, une place pour son avis.</p></div>
+    <div class="card"><div class="paper"><div style="height:8px;width:60%;background:#3d405b;border-radius:2px"></div><div style="height:2px;background:#3d405b"></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:3px"><div style="height:18px;border:1px solid #d9d9e3;border-radius:3px"></div><div style="height:18px;border:1px solid #d9d9e3;border-radius:3px"></div></div><div style="height:7px;background:#3d405b;border-radius:2px"></div><div style="height:4px;background:#e2e3ef"></div><div style="height:4px;background:#e2e3ef"></div><div style="height:4px;background:#e2e3ef"></div><div style="flex:1;background:#3d405b;border-radius:4px"></div></div><div class="age">12-21 ans</div><h3>Grands</h3><p>Ses objectifs, ses droits, les échéances, son projet d'autonomie.</p></div>
+   </div>
+   <p class="fine">Aucun élément sensible n'est repris automatiquement ; chaque version est relue avant d'être remise.</p>
+  </div>
+ </section>
+
+ <section id="securite">
+  <div class="wrap sec">
+   <div><div class="k">Sécurité</div><h2>Connecté à votre travail, pas à Internet</h2><p>2Avenir fonctionne sur vos postes, ou dans le dossier partagé de votre établissement. Les données des enfants ne sont envoyées ni à 2A, ni à personne.</p><p class="law">Construit sur le CASF : PPE (L. 223-1-1, D. 223-12 à D. 223-17), DIPC (L. 311-4, D. 311), rapport de situation (L. 223-5, R. 223-18 à R. 223-21). Mises à jour réglementaires comprises.</p></div>
+   <div class="sg">
+    <div><b>Chiffrement</b><span>AES-256, une clé par dossier, remise aux seules personnes autorisées.</span></div>
+    <div><b>Aucune transmission</b><span>Pas de serveur, pas de statistiques.</span></div>
+    <div><b>Verrouillage</b><span>Automatique après inactivité.</span></div>
+    <div><b>Sauvegarde</b><span>Chiffrée, dans le dossier de votre choix.</span></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="tarifs">
+  <div class="wrap">
+   <div class="sh c"><div class="k">Tarifs</div><h2>Un abonnement annuel, tout compris</h2><p>Mises à jour, nouvelles trames et assistance comprises.</p></div>
+   <div class="tg">
+    <div class="t"><h3>Essentiel</h3><div class="for">Un service, jusqu'à 20 enfants</div><div class="px">390 €<small> HT / an</small></div><div class="ttc">soit 468 € TTC</div><ul><li>Tous les documents</li><li>Versions enfant</li><li>Échéances et chronologie</li></ul><a class="btn line" href="#demo">Demander une démo</a></div>
+    <div class="t rec"><h3>Établissement</h3><div class="for">21 à 60 enfants</div><div class="px">690 €<small> HT / an</small></div><div class="ttc">soit 828 € TTC</div><ul><li>Reprise de vos modèles</li><li>Mode équipe, plusieurs postes</li><li>Prise en main en visio</li></ul><a class="btn" href="#demo">Demander une démo</a></div>
+    <div class="t"><h3>Multi-services</h3><div class="for">61 à 120 enfants</div><div class="px">990 €<small> HT / an</small></div><div class="ttc">soit 1 188 € TTC</div><ul><li>Plusieurs services</li><li>Accompagnement au déploiement</li><li>Au-delà de 120 enfants : sur devis</li></ul><a class="btn line" href="#demo">Nous contacter</a></div>
+   </div>
+  </div>
+ </section>
+
+ <div class="final" id="demo">
+  <div class="wrap">
+   <div class="k">Démonstration</div>
+   <h2>Voyez 2Avenir en 20 minutes</h2>
+   <p>En visio, avec un dossier fictif. Sans engagement.</p>
+   <form class="form" id="demoForm" action="https://formspree.io/f/xjykajbo" method="POST">
+    <input type="hidden" name="_subject" value="2Avenir : demande de démonstration">
+    <input type="hidden" name="origine" value="2avenir.2aformation.com">
+    <div><label for="f-nom">Nom et fonction</label><input id="f-nom" name="nom_fonction" required placeholder="Cheffe de service"></div>
+    <div><label for="f-struct">Établissement</label><input id="f-struct" name="etablissement" required placeholder="Nom de la structure"></div>
+    <div><label for="f-mail">E-mail professionnel</label><input id="f-mail" name="email" type="email" required placeholder="prenom.nom@structure.fr"></div>
+    <button class="btn" type="submit">Demander</button>
+   </form>
+   <p class="ok" id="ok" hidden role="status"></p>
+   <p class="fine" style="margin-top:14px;font-size:12.5px;color:var(--dim)">Vos coordonnées servent uniquement à vous recontacter pour la démonstration. Voir notre <a href="https://2aformation.com/politique-de-confidentialite/index.html" style="color:inherit">politique de confidentialité</a>.</p>
+  </div>
+ </div>
+</main>
+
+<footer>
+ <div class="wrap"><span>2Avenir · un logiciel de 2A Formation</span><span><a href="https://2aformation.com/mention/index.html">Mentions légales</a> · <a href="https://2aformation.com/politique-de-confidentialite/index.html">Confidentialité</a> · <a href="https://2aformation.com/">2aformation.com</a></span></div>
+</footer>
+
+<script>
+(function(){
+ var c=document.getElementById('net'),x=c.getContext('2d'),W,H,dpr=Math.min(window.devicePixelRatio||1,2),pts=[],mouse={x:-9999,y:-9999};
+ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var LINK=150;
+ function init(){
+  W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+  var n=Math.min(W<700?60:130,Math.round(W*H/11000));pts=[];
+  for(var i=0;i<n;i++){pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.28,vy:(Math.random()-.5)*.28,r:Math.random()<.12?2.2:1.2+Math.random()*.6})}
+ }
+ function frame(){
+  x.clearRect(0,0,W,H);
+  for(var i=0;i<pts.length;i++){var p=pts[i];
+   if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}
+   for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<LINK){x.strokeStyle='rgba(255,255,255,'+(0.22*(1-d/LINK)).toFixed(3)+')';x.lineWidth=1;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}
+   var mx=p.x-mouse.x,my=p.y-mouse.y,md=Math.sqrt(mx*mx+my*my);
+   if(md<200){x.strokeStyle='rgba(140,200,255,'+(0.45*(1-md/200)).toFixed(3)+')';x.beginPath();x.moveTo(p.x,p.y);x.lineTo(mouse.x,mouse.y);x.stroke()}
+   x.fillStyle=p.r>2?'rgba(255,255,255,.95)':'rgba(255,255,255,.7)';x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fill();
+  }
+  if(!reduce&&!document.hidden)requestAnimationFrame(frame);
+ }
+ addEventListener('mousemove',function(e){mouse.x=e.clientX;mouse.y=e.clientY});
+ addEventListener('mouseout',function(){mouse.x=mouse.y=-9999});
+ init();addEventListener('resize',function(){init();if(reduce)frame()});frame();
+ document.addEventListener('visibilitychange',function(){if(!document.hidden&&!reduce)requestAnimationFrame(frame)});
+ addEventListener('scroll',function(){var k=Math.min(1,scrollY/(innerHeight*0.9));c.style.opacity=(1-0.5*k).toFixed(2)},{passive:true});
+ var f=document.getElementById('demoForm'),ok=document.getElementById('ok');if(f)f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button');b.disabled=true;fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw 0;f.reset();ok.textContent='Merci ! Nous vous recontactons très vite pour fixer la démonstration.';ok.style.color='';ok.hidden=false;}).catch(function(){ok.textContent='L\'envoi n\'a pas fonctionné. Écrivez-nous à 2aa.formation@gmail.com.';ok.style.color='#ffb4a8';ok.hidden=false;}).then(function(){b.disabled=false;});});
+})();
+</script>
+
+</body>
+</html>
