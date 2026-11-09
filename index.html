@@ -148,6 +148,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .ok{margin-top:18px;color:#7fe0c4;font-size:15px}
 @media(max-width:900px){.steps,.form{grid-template-columns:1fr}.steps:before{display:none}.strip .wrap{gap:14px;flex-direction:column;align-items:center;text-align:center}}
 @media(prefers-reduced-motion:reduce){.app .row{animation:none}.app .bar .live:before{animation:none}}
+.film{max-width:960px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.35);background:#081639}
+.film video{display:block;width:100%;height:auto}
+#video{padding-top:96px}
 </style>
 </head>
 <body>
@@ -157,7 +160,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <header>
  <div class="wrap">
   <div class="logo"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="13" cy="13" r="3.2" fill="#fff"/><circle cx="4" cy="6" r="1.8"/><circle cx="22" cy="5" r="1.8"/><circle cx="23" cy="19" r="1.8"/><circle cx="5" cy="21" r="1.8"/><path d="M5.5 7l5 4.2M20.5 6.3l-5.3 4.8M21.5 18l-5.6-3.4M6.5 19.8l4.3-4.2"/></svg>2Avenir</div>
-  <nav><a href="#logiciel">Le logiciel</a><a href="#equipe">Équipe</a><a href="#enfant">Version enfant</a><a href="#securite">Sécurité</a><a href="#tarifs">Tarifs</a></nav>
+  <nav><a href="#video">Vidéo</a><a href="#logiciel">Le logiciel</a><a href="#equipe">Équipe</a><a href="#enfant">Version enfant</a><a href="#securite">Sécurité</a><a href="#tarifs">Tarifs</a></nav>
   <a class="btn" href="#demo">Demander une démo</a>
  </div>
 </header>
@@ -184,6 +187,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  </div>
 
  <div class="strip"><div class="wrap"><span><b>Conçu par deux éducateurs spécialisés</b> en protection de l'enfance</span><span><b>Fondé sur le CASF</b>, mis à jour avec la loi</span><span><b>Par 2A Formation</b>, organisme de formation certifié Qualiopi</span></div></div>
+
+
+ <section id="video">
+  <div class="wrap">
+   <div class="sh c"><div class="k">En vidéo</div><h2>2Avenir en moins d'une minute</h2></div>
+   <div class="film"><video controls preload="metadata" playsinline poster="video-2avenir-apercu.jpg" aria-label="Présentation de 2Avenir en vidéo, données fictives"><source src="video-2avenir.mp4" type="video/mp4">Votre navigateur ne lit pas la vidéo : <a href="video-2avenir.mp4">la télécharger</a>.</video></div>
+  </div>
+ </section>
 
  <section id="etapes">
   <div class="wrap">
