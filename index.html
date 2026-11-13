@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-WDhfaguZi6qA0SUaBddA76h1Hma9u4a4FlL1iNWqKKk='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'none'; form-action https://formspree.io; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2Avenir · logiciel pour la protection de l'enfance</title>
 <meta name="description" content="2Avenir relie le dossier de chaque enfant accueilli, les échéances et les documents (PPE, DIPC, projet personnalisé, rapport de situation), avec une version pour l'enfant. Sans serveur extérieur. Par 2A Formation.">
@@ -274,9 +276,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
    <form class="form" id="demoForm" action="https://formspree.io/f/xjykajbo" method="POST">
     <input type="hidden" name="_subject" value="2Avenir : demande de démonstration">
     <input type="hidden" name="origine" value="2avenir.2aformation.com">
-    <div><label for="f-nom">Nom et fonction</label><input id="f-nom" name="nom_fonction" required placeholder="Cheffe de service"></div>
-    <div><label for="f-struct">Établissement</label><input id="f-struct" name="etablissement" required placeholder="Nom de la structure"></div>
-    <div><label for="f-mail">E-mail professionnel</label><input id="f-mail" name="email" type="email" required placeholder="prenom.nom@structure.fr"></div>
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <div><label for="f-nom">Nom et fonction</label><input id="f-nom" name="nom_fonction" required maxlength="120" placeholder="Cheffe de service"></div>
+    <div><label for="f-struct">Établissement</label><input id="f-struct" name="etablissement" required maxlength="160" placeholder="Nom de la structure"></div>
+    <div><label for="f-mail">E-mail professionnel</label><input id="f-mail" name="email" type="email" required maxlength="160" placeholder="prenom.nom@structure.fr"></div>
     <button class="btn" type="submit">Demander</button>
    </form>
    <p class="ok" id="ok" hidden role="status"></p>
