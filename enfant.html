@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src https://formspree.io; form-action https://formspree.io; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2Avenir · la version enfant</title>
+<meta name="description" content="Une version illustrée du projet de l'enfant, en trois styles selon l'âge, et la page « Ma parole » pour recueillir son avis. Avec ou sans dossier usager informatisé.">
+<meta property="og:title" content="2Avenir · la version enfant">
+<meta property="og:description" content="Une version illustrée du projet de l'enfant, en trois styles selon l'âge, et la page « Ma parole » pour recueillir son avis. Avec ou sans dossier usager informatisé.">
+<meta property="og:url" content="https://2avenir.net/enfant.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 26 26%27%3E%3Crect width=%2726%27 height=%2726%27 rx=%276%27 fill=%27%23071433%27/%3E%3Cg stroke=%27%23fff%27 stroke-width=%271.6%27%3E%3Cpath d=%27M6 7l7 6l7-6M6 19l7-6l7 6%27/%3E%3C/g%3E%3Ccircle cx=%2713%27 cy=%2713%27 r=%273%27 fill=%27%238cc8ff%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="net" aria-hidden="true"></canvas>
+<header>
+ <div class="wrap">
+  <a class="logo" href="index.html"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="13" cy="13" r="3.2" fill="#fff"/><circle cx="4" cy="6" r="1.8"/><circle cx="22" cy="5" r="1.8"/><circle cx="23" cy="19" r="1.8"/><circle cx="5" cy="21" r="1.8"/><path d="M5.5 7l5 4.2M20.5 6.3l-5.3 4.8M21.5 18l-5.6-3.4M6.5 19.8l4.3-4.2"/></svg>2Avenir</a>
+  <nav aria-label="Navigation principale"><a href="logiciel.html">Le logiciel</a><a href="enfant.html" aria-current="page">L'enfant</a><a href="accueil-familial.html">Accueil familial</a><a href="formules.html">Formules et sécurité</a></nav>
+  <a class="btn hd" href="#demo">Demander une démo</a>
+  <details class="mnav"><summary>Menu</summary><div><a href="index.html">Accueil</a><a href="logiciel.html">Le logiciel</a><a href="enfant.html">L'enfant</a><a href="accueil-familial.html">Accueil familial</a><a href="formules.html">Formules et sécurité</a><a href="#demo">Demander une démo</a></div></details>
+ </div>
+</header>
+<main>
+ <div class="page-hero">
+  <div class="wrap">
+   <div class="k">La version enfant · formule Enfant</div>
+   <h1>Le projet de l'enfant, <span>écrit pour lui.</span></h1>
+   <p>Chaque document s'accompagne d'une version illustrée, réécrite avec les mots de son âge, à relire puis à lui remettre et à lui expliquer. Avec ou sans dossier usager informatisé.</p>
+   <div class="ctas" style="margin-top:30px"><a class="btn" href="#demo">Demander une démo</a><a class="btn line" href="formules.html">Voir les formules</a></div>
+  </div>
+ </div>
+ <div class="strip"><div class="wrap"><span><b>Conçu par deux éducateurs spécialisés</b> en protection de l'enfance</span><span><b>Fondé sur le CASF</b>, mis à jour avec la loi</span><span><b>Par 2A Formation</b>, organisme de formation certifié Qualiopi</span></div></div>
+ <section class="kid styles">
+  <div class="wrap">
+   <div class="sh c"><div class="k">Trois styles selon l'âge</div><h2>Le même projet, trois façons de le dire</h2></div>
+   <div class="grid3">
+    <div class="card"><div class="ex p" role="img" aria-label="Exemple fictif, style Petits"><svg aria-hidden="true" width="54" height="54" viewBox="0 0 30 30" fill="#ffd66b" stroke="#7a5200" stroke-width="1.6" stroke-linecap="round"><circle cx="15" cy="15" r="12"/><circle cx="11" cy="12" r="1.1" fill="#7a5200"/><circle cx="19" cy="12" r="1.1" fill="#7a5200"/><path d="M10 18c2.5 3 7.5 3 10 0"/></svg><span class="h" style="color:#3a2a10">Je dors chez Martine.</span><span style="font-size:13px">Une idée par page</span></div><div class="age">Moins de 6 ans</div><h3>Petits</h3><p>Une image, une idée par page, à raconter avec l'adulte.</p></div>
+    <div class="card"><div class="ex m" role="img" aria-label="Exemple fictif, style Moyens"><span class="h">Mon projet</span><span class="l" style="background:#e3f4e6">1. Je vais à l'école et on m'aide pour la lecture.</span><span class="l" style="background:#e4eeff">2. Je vois maman un mercredi sur deux.</span><span class="l" style="background:#ffe9e4">3. Je m'inscris au foot.</span></div><div class="age">6 à 11 ans</div><h3>Moyens</h3><p>Ses objectifs, ses rendez-vous à venir, une place pour son avis.</p></div>
+    <div class="card"><div class="ex g" role="img" aria-label="Exemple fictif, style Grands"><span class="h" style="color:#1c2333">Mon projet, mes droits</span><span style="font-size:13.5px;line-height:1.5">Objectif : préparer mon stage de 3e, avec mon éducatrice référente, avant mars.</span><span style="font-size:13.5px;line-height:1.5">Je peux choisir une personne de confiance.</span></div><div class="age">12 ans et plus</div><h3>Grands</h3><p>Son projet, ses droits, ses échéances, avec ses propres mots.</p></div>
+   </div>
+  </div>
+ </section>
+ <section class="alt">
+  <div class="wrap split">
+   <div>
+    <div class="k">Ma parole</div>
+    <h2>Avant une synthèse ou une audience, l'enfant prépare ce qu'il veut dire.</h2>
+    <p>Une page à remplir avec lui, en mots, en dessins ou en entourant un visage : ce qui va bien, ce qui est difficile, ce qu'il aimerait. Le professionnel la reporte ensuite dans le dossier. L'enfant peut refuser.</p>
+   </div>
+   <div class="parole" role="img" aria-label="Aperçu de la page Ma parole"><p class="h">Ma parole</p><div style="background:#e3f4e6;color:#1f6b3d">Ce qui va bien</div><div style="background:#e4eeff;color:#1d3c7a">Ce qui est difficile</div><div style="background:#ffe9e4;color:#a03e27">Ce que j'aimerais</div></div>
+  </div>
+ </section>
+ <section>
+  <div class="wrap">
+   <div class="sh c"><div class="k">Sans ressaisie</div><h2>Écrire en mots simples, en quelques minutes</h2><p>Prénom, âge, trois à cinq objectifs, le prochain rendez-vous. Pas besoin de reprendre tout le dossier : votre DUI reste votre outil principal.</p></div>
+   <div class="grid3">
+    <div class="card"><div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 20l1.5-4.5L16 5l3 3L8.5 18.5z"/><path d="M14 7l3 3"/></svg></div><h3>Banque de phrases</h3><p>Des formulations simples par domaine (santé, école, famille, vie quotidienne, loisirs) pour vous aider à écrire.</p></div>
+    <div class="card"><div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Rendez-vous illustrés</h3><p>Qui l'enfant va voir, quand et pourquoi : juge, point sur le projet, visite, médecin.</p></div>
+    <div class="card"><div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></svg></div><h3>Votre logo</h3><p>Le logo et les coordonnées de votre structure sur chaque document.</p></div>
+   </div>
+  </div>
+ </section>
+ <section class="alt">
+  <div class="wrap">
+   <div class="sh c"><div class="k">Protéger l'enfant</div><h2>Ce que la version enfant ne montre jamais</h2></div>
+   <div class="grid3">
+    <div class="card"><div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>Exclus d'office</h3><p>Les motifs du placement, les adresses et les rubriques sensibles ne sont jamais repris.</p></div>
+    <div class="card"><div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div><h3>Relu avant remise</h3><p>Le professionnel valide chaque document. 2Avenir prépare, il ne décide rien.</p></div>
+    <div class="card"><div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/></svg></div><h3>Pas pour les majeurs</h3><p>Aucune version enfant n'est produite pour un jeune majeur.</p></div>
+   </div>
+   <p class="fine">Le mineur est associé à l'établissement de son projet pour l'enfant, selon des modalités adaptées à son âge et à sa maturité, et ce projet lui est remis (CASF, art. L. 223-1-1). Le service examine avec lui toute décision le concernant et recueille son avis (art. L. 223-4).</p>
+  </div>
+ </section>
+ <div class="final" id="demo">
+  <div class="wrap">
+   <div class="k">Démonstration</div>
+   <h2>Découvrez 2Avenir en 20 minutes</h2>
+   <p>En visio, avec un dossier fictif. Sans engagement.</p>
+   <form class="form" id="demoForm" action="https://formspree.io/f/xjykajbo" method="POST">
+    <input type="hidden" name="_subject" value="2Avenir : demande de démonstration">
+    <input type="hidden" name="origine" value="2avenir.net">
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <div><label for="f-nom">Nom et fonction</label><input id="f-nom" name="nom_fonction" required maxlength="120" placeholder="Cheffe de service"></div>
+    <div><label for="f-struct">Structure</label><input id="f-struct" name="etablissement" required maxlength="160" placeholder="Nom de la structure"></div>
+    <div><label for="f-mail">E-mail professionnel</label><input id="f-mail" name="email" type="email" required maxlength="160" placeholder="prenom.nom@structure.fr"></div>
+    <div><label for="f-formule">Formule qui vous intéresse</label><select id="f-formule" name="formule"><option>Dossier complet</option><option>Enfant</option><option>Accueil familial</option><option>Je ne sais pas encore</option></select></div>
+    <div><label for="f-dui">Avez-vous déjà un dossier usager informatisé ?</label><select id="f-dui" name="dui_existant"><option>Oui</option><option>Non</option><option>En cours de déploiement</option><option>Je ne sais pas</option></select></div>
+    <div><label for="f-msg">Message (facultatif)</label><input id="f-msg" name="message" maxlength="500" placeholder="Votre question"></div>
+    <div class="send"><button class="btn" type="submit">Demander une démo</button></div>
+   </form>
+   <p class="ok" id="ok" hidden role="status"></p>
+   <p class="fine" style="margin-top:14px;font-size:12.5px;color:var(--dim)">Vos coordonnées servent uniquement à vous recontacter pour la démonstration. Elles transitent par le service Formspree (États-Unis). Voir notre <a href="https://2aformation.com/politique-de-confidentialite/index.html" style="color:inherit">politique de confidentialité</a>.</p>
+  </div>
+ </div>
+</main>
+<footer>
+ <div class="wrap"><span>2Avenir · un logiciel de 2A Formation</span><span><a href="https://2aformation.com/mention/index.html">Mentions légales</a> · <a href="https://2aformation.com/politique-de-confidentialite/index.html">Confidentialité</a> · <a href="https://2aformation.com/">2aformation.com</a></span></div>
+ <div class="wrap" style="margin-top:12px;font-size:12px;line-height:1.6;display:block">Éditeur : 2A Formation, entreprise individuelle d'Alexandre Bigot, 2885 route de Saint-Papoul, 11400 Castelnaudary · SIRET 897 695 235 00019 · 2aa.formation@gmail.com · Directeur de la publication : Alexandre Bigot · Hébergement : GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Ce site ne dépose aucun cookie.</div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
